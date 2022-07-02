@@ -1,0 +1,50 @@
+body{
+   background-color:rgba(88, 144, 208, 0.21);
+}
+
+.main{
+   width: 50%;
+   margin: 0 auto;
+}
+
+.main{
+   margin-top: 5%;
+}
+
+.form{
+   text-align: center;
+   margin-bottom: 2%;
+   font-family: 'nunito';
+   font-size: 18px;
+}
+
+.campo_pesquisa{
+   width: 50%;
+   padding: 1%;
+   border-radius: 5px;
+   border: 1px solid #646464;
+}
+
+.campo_pesquisa:focus{
+   outline: 1px solid #bababa;
+}
+
+.card_tempo{
+   background-color: #f8f8f8;
+   border: 1px solid #bdbdbd;
+   box-shadow: 1px 5px 5px #bababa;
+   border-radius: 5px;
+   box-sizing: border-box;
+   padding: 3%;
+   font-family: 'lato';
+}
+
+.card_tempo .container{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.temp_atual::after ,.temp_max::after ,.temp_min::after{
+   content: '°C';
+}
