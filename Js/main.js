@@ -1,13 +1,15 @@
 var campoPesquisa = document.querySelector('.campo_pesquisa')
 
 
-campoPesquisa.addEventListener('focusout', () => {
+campoPesquisa.addEventListener('keyup', () => {
    var valorPesquisa = document.querySelector('.campo_pesquisa').value
    
    localAPI(valorPesquisa)
 })
 
 
+
+//acha local
 const localAPI = async (valorPesquisa) => {
    const url = `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=nfdfeQp8LuYjVh0gyhEACRpwjMUGDyVG&q=${valorPesquisa}`
    const dadosGerais = await fetch(url)
@@ -46,14 +48,31 @@ const climaAPI = async (dados) => {
    
    document.querySelector('.temp_atual').textContent = `Temp atual ${dadosClima[0].Temperature.Metric.Value}`
    document.querySelector('.txt_clima').textContent = dadosClima[0].WeatherText  
-
+   
    console.log(dadosClima);
+   
+   //troca img do clima EM CONSTRUÇÃO
+   let imgClima = document.querySelector('.img_clima')
+   switch (dadosClima[0].WeatherText) {
+      case 'Sunny':
+         imgClima.setAttribute('src', 'Conteudo/clear_day.svg')
+      break;
+      
+      case 'Clouds and sun':
+         imgClima.setAttribute('src', 'Conteudo/partly_cloudy_day.svg')
+      break;
 
+      case '':
+         imgClima.setAttribute('src','')
+      break
+      default:
+      break;
+   }
 }
 
 
 function converteTemp(fahrenheit) {
    let celsius = (fahrenheit - 32) / 1.8
-
+   
    return celsius.toFixed(1)
 }
