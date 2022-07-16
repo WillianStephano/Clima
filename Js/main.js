@@ -46,7 +46,7 @@ const climaAPI = async (dados) => {
    const dadosGerais = await fetch(url)
    const dadosClima = await dadosGerais.json()
    
-   document.querySelector('.temp_atual').textContent = `Temp atual ${dadosClima[0].Temperature.Metric.Value}`
+   document.querySelector('.temp_atual').textContent = `${dadosClima[0].Temperature.Metric.Value}`
    document.querySelector('.txt_clima').textContent = dadosClima[0].WeatherText  
    
    console.log(dadosClima);
@@ -62,9 +62,14 @@ const climaAPI = async (dados) => {
          imgClima.setAttribute('src', 'Conteudo/partly_cloudy_day.svg')
       break;
 
-      case '':
-         imgClima.setAttribute('src','')
+      case 'Cloudy':
+         imgClima.setAttribute('src','Conteudo/cloudy.svg')
       break
+
+      case 'Hazy sunshine':
+         imgClima.setAttribute('src','Conteudo/clear_day.svg')
+      break
+
       default:
       break;
    }
