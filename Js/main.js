@@ -41,6 +41,19 @@ function insereClima(dados) {
    tempMin.textContent = `Temp minima: ${converteTemp(dados.DailyForecasts[0].Temperature.Minimum.Value)}`
 }
 
+const colecaoImg = [
+   {
+      id: 'Sunny',
+      img: 'Conteudo/clear_day.svg',
+   },
+   
+   {
+      id: 'Partly sunny',
+      img: 'Conteudo/cloudy.svg',
+   },
+   
+]
+
 const climaAPI = async (dados) => {
    const url = `http://dataservice.accuweather.com/currentconditions/v1/${dados[0].Key}?apikey=nfdfeQp8LuYjVh0gyhEACRpwjMUGDyVG`
    const dadosGerais = await fetch(url)
@@ -49,30 +62,32 @@ const climaAPI = async (dados) => {
    document.querySelector('.temp_atual').textContent = `${dadosClima[0].Temperature.Metric.Value}`
    document.querySelector('.txt_clima').textContent = dadosClima[0].WeatherText  
    
-   console.log(dadosClima);
+   //console.log(dadosClima);
+   
+   alteraImgClima()
    
    //troca img do clima EM CONSTRUÇÃO
-   let imgClima = document.querySelector('.img_clima')
+   /*  let imgClima = document.querySelector('.img_clima')
    switch (dadosClima[0].WeatherText) {
       case 'Sunny':
-         imgClima.setAttribute('src', 'Conteudo/clear_day.svg')
+      imgClima.setAttribute('src', 'Conteudo/clear_day.svg')
       break;
       
       case 'Clouds and sun':
-         imgClima.setAttribute('src', 'Conteudo/partly_cloudy_day.svg')
+      imgClima.setAttribute('src', 'Conteudo/partly_cloudy_day.svg')
       break;
-
+      
       case 'Cloudy':
-         imgClima.setAttribute('src','Conteudo/cloudy.svg')
+      imgClima.setAttribute('src','Conteudo/cloudy.svg')
       break
-
+      
       case 'Hazy sunshine':
-         imgClima.setAttribute('src','Conteudo/clear_day.svg')
+      imgClima.setAttribute('src','Conteudo/clear_day.svg')
       break
-
+      
       default:
       break;
-   }
+   } */
 }
 
 
@@ -80,4 +95,26 @@ function converteTemp(fahrenheit) {
    let celsius = (fahrenheit - 32) / 1.8
    
    return celsius.toFixed(1)
+}
+
+
+
+function alteraImgClima() {
+   let imgClima = document.querySelector('.img_clima')
+   let teste = document.querySelector('.txt_clima').textContent 
+
+   for (let i = 0; i < colecaoImg.length; i++) {
+      const elemento = colecaoImg[i];
+      
+      
+      if (teste == elemento.id) {
+         imgClima.setAttribute('src', elemento.img)
+         console.log(colecaoImg);
+        
+      }
+   }
+   
+   
+   
+   
 }
