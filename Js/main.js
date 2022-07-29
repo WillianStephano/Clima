@@ -57,42 +57,6 @@ const climaAPI = async (dados) => {
 }
 
 
-const colecaoImgClima = [
-   {
-      id: 'Sunny',
-      img: "Conteudo/clearDay.svg",
-   },
-   
-   {
-      id: 'Clouds and sun',
-      img: "Conteudo/partlyCloudyDay.svg",
-   },
-   
-   {
-      id: 'Cloudy',
-      img: "cloudy.svg",
-   },
-]
-
-
-function alteraImgClima() {
-   let imgClima = document.querySelector('.img_clima')
-   let teste = document.querySelector('.txt_clima').textContent 
-   
-   for (let i = 0; i < colecaoImgClima.length; i++) {
-      const elemento = colecaoImgClima[i];
-      
-      
-      if (teste == elemento.id) {
-         imgClima.setAttribute('src', elemento.img)
-         console.log(colecaoImgClima);
-         
-      }
-   }
-   
-}
-
-
 function converteTemp(fahrenheit) {
    let celsius = (fahrenheit - 32) / 1.8
    
