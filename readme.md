@@ -26,9 +26,9 @@ O projeto é composto por uma pagina que contem 2 seções principais:
 - **Pesquisa de local:** Barra de pesquisa que busca uma localidade pelo nome;
 - **Temperatura e dados:** Contem informações do nome do local pesquisado e tambem pais, estado, temperatura atual, temperatura maxima, temperatura minima e um icone representando a temperatura atual;
 
-
-
-
+<h6 align="center">
+ (Projeto temporariamente pausado devido a limitação de request diarias disponibilizado pela API que dificulta o desenvolvimento) :/
+</h6>
 
 <img src="Conteudo/previa-clima.PNG" alt="Imagem de pré-visualização da pagina">
 
@@ -40,7 +40,7 @@ Para o desenvolvimento deste projeto utilizei as seguintes tecnologias:
 - HTML;
 - CSS;
 - JavaScript;
-- API utilizada: https://developer.accuweather.com/apis/
+- API utilizada: https://developer.accuweather.com/apis/;
 
 ---
 
